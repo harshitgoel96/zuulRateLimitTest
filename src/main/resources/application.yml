@@ -1,0 +1,32 @@
+server:
+  port: 8060
+zuul:
+  routes:
+    welcome:
+      sensitiveHeaders:
+      url: http://localhost:8080/data4cs/welcome
+    rateorders:
+      path: /data4cs/orders/**
+      sensitiveHeaders:
+#      url: http://localhost:8080/data4cs/orders
+      serviceId: props.local-server
+      stripPrefix: false
+  ratelimit:
+    enabled: true
+    repository: JPA
+    policy-list:
+      welcome:
+        - limit: 5
+          refresh-interval: 60
+          type:
+            - origin
+      orders:
+        - limit: 7
+          refresh-interval: 60
+          type:
+            - origin
+#  strip-prefix: true
+
+props:
+  local-server:
+    listOfServers: http://localhost:8080
