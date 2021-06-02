@@ -28,11 +28,6 @@ public class PreFilter extends ZuulFilter {
 
     @Override
     public Object run()  {
-//        RequestContext ctx = RequestContext.getCurrentContext();
-//        String auth = "user" + ":" + "password";
-//        byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("ISO-8859-1")));
-//        String authValue = "Basic " + new String(encodedAuth);
-//        ctx.addZuulRequestHeader(HttpHeaders.AUTHORIZATION, authValue);
         return null;
     }
 }
