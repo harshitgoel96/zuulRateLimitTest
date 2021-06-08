@@ -23,8 +23,8 @@ zuul:
       orders:
         - limit: 7
           refresh-interval: 60
-          type:
-            - origin
+        - type: 
+            - http_header=customHeader
 #  strip-prefix: true
 
 props:
